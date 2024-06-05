@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{eqparbox}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage[dvipsnames]{xcolor}  % 使用 xcolor 包的 dvipsnames 选项
+% \usepackage{minted}
+\useunder{\uline}{\ul}{}
+
+\lstset{
+    numbers=left,                   % 在左侧显示行号
+    numberstyle=\color{Lavender},  % 设置行号的样式
+    % frame=single,                   % 添加框架
+    rulecolor=\color{black},        % 设置框架的颜色
+    tabsize=2,                      % 设置tab的宽度
+    breaklines=true,                % 自动折行
+    breakatwhitespace=false,        % 在空白处折行
+    escapeinside={\%*}{*)},         % 如果你想在代码中添加LaTeX代码，可以在此处设置
+    keywordstyle=\color{RedViolet},      % 设置关键字的颜色
+    commentstyle=\color{Salmon},   % 设置注释的颜色
+    stringstyle=\color{RoyalBlue},      % 设置字符串的颜色
+    basicstyle=\footnotesize,       % 设置代码的字体大小
+    columns=fullflexible, 
+    xleftmargin=2em,                % 设置左边距
+    backgroundcolor=\color{code_bgc}, % 设置背景颜色
+}
+\definecolor{code_bgc}{RGB}{255, 253, 253}  % 定义一个非常淡的粉色
+\newenvironment{codedisplay}[2]
+{
+    \begin{multicols}{3}
+        \lstinputlisting[language={#1}]{#2}
+    \end{multicols} 
+}
+
+\title{实验报告模板}
+\author{作者}
+
+\begin{document}
+
+\begin{codedisplay}{[x86masm]Assembler}{code/Lab6.4 copy.asm}
+
+\end{codedisplay}
+
+\end{document}

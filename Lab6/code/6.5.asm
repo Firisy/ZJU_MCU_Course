@@ -1,0 +1,65 @@
+ORG 0000H
+AJMP MAIN
+ORG 000BH
+AJMP TIME0
+ORG 0080H
+
+MAIN:
+    MOV P2,#0FFH
+    MOV 40H,#25
+    CLR C
+    MOV A,#64H
+    SUBB A,40H
+    MOV B,#10
+    MUL AB
+    MOV 41H,A
+    MOV 43H,B
+
+    MOV A,40H
+    MOV B,#10
+    MUL AB
+    MOV 40H,A
+    MOV 42H,B
+
+    MOV A,#0BH
+    SUBB A,40H
+    MOV 40H,A
+    MOV A,#00H
+    SUBB A,42H
+    MOV 42H,A
+
+    CLR C
+    MOV A,#0BH
+    SUBB A,41H
+    MOV 41H,A
+    MOV A,#00H
+    SUBB A,43H
+    MOV 43H,A
+
+
+    MOV TMOD,#01H
+    MOV TH0,42H
+    MOV TL0,40H
+
+    SETB EA
+    SETB ET0
+    SETB TR0
+    SJMP $
+TIME0:
+    PUSH ACC
+    PUSH PSW
+    MOV A,P2
+    CPL A
+    MOV P2,A
+    JZ P21
+    MOV TL0,41H
+    MOV TH0,43H
+    SJMP T_END
+P21:
+    MOV TL0,40H
+    MOV TH0,42H
+T_END:
+    POP PSW
+    POP ACC
+    RETI
+END
