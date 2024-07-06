@@ -53,14 +53,16 @@ extern "C" {
 extern uint16_t datac_pre[240];
 extern uint16_t datab_pre[240];
 extern uint8_t spoint,mpoint,hpoint;
+extern uint32_t command;
+extern _Bool dataReady;
 extern uint8_t date[14];
+extern _Bool FinishReading;
+extern uint32_t WorkState;
+extern uint8_t rotate_v;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-extern uint8_t datamode[15][32];
-extern uint8_t datamod_8[18][8];
-extern uint8_t datamod2_8[18][8];
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -129,6 +131,9 @@ extern void getdate(void);
 #define INT0_IR_Pin LL_GPIO_PIN_6
 #define INT0_IR_GPIO_Port GPIOB
 #define INT0_IR_EXTI_IRQn EXTI4_15_IRQn
+#define INT0_YK_Pin LL_GPIO_PIN_7
+#define INT0_YK_GPIO_Port GPIOB
+#define INT0_YK_EXTI_IRQn EXTI4_15_IRQn
 #define LED00_Pin LL_GPIO_PIN_8
 #define LED00_GPIO_Port GPIOB
 #ifndef NVIC_PRIORITYGROUP_0
@@ -145,6 +150,28 @@ extern void getdate(void);
 #endif
 
 /* USER CODE BEGIN Private defines */
+#define IRR_CH_Neg (0x00FFA25D)
+#define IRR_CH (0x00FF629D)
+#define IRR_Start (0x00FFC23D)
+#define IRR_Right (0x00FF02FD)
+#define IRR_Left (0x00FF22DD)
+#define IRR_Up (0x00FFA857)
+#define IRR_Down (0x00FFA857)
+#define IRR_CH_Plus (0x00FFE21D)
+#define IRR_1 (0x00FF30CF)
+#define IRR_2 (0x00FF18E7)
+#define IRR_3 (0x00FF7A85)
+#define IRR_4 (0x00FF10EF)
+#define IRR_5 (0x00FF38C7)
+#define IRR_6 (0x00FF5AA5)
+#define IRR_7 (0x00FF42BD)
+#define IRR_8 (0x00FF4AB5)
+#define IRR_9 (0x00FF52AD)
+
+#define NEC_Rotate_Right (1<<0)
+#define NEC_Rotate_Left (1<<1)
+#define NEC_Time_Adjust (1<<2)
+#define NEC_Show (1<<3)
 
 /* USER CODE END Private defines */
 

@@ -1,43 +1,4 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file    stm32f0xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
- ******************************************************************************
-  */
-/* USER CODE END Header */
-
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F0xx_IT_H
-#define __STM32F0xx_IT_H
-
-#ifdef __cplusplus
- extern "C" {
-#endif
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
-
-/* USER CODE END ET */
-
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
-const uint16_t x[4][240]={
+uint16_t x[4][240]={
 {
 0x2060, 0x10b0, 0x18b0, 0x0880, 0x8c87, 0xfc87, 0xce8d, 0xc68c, 
 0x8488, 0x9e99, 0x9f91, 0xe990, 0x799f, 0xf39b, 0xf6db, 0x2edb, 
@@ -163,7 +124,7 @@ const uint16_t x[4][240]={
 0x403a, 0xc03b, 0x4039, 0x6079, 0x2051, 0x3052, 0x3050, 0x30d8, 
 0x10c8, 0x0040, 0x0840, 0x0c42, 0x8443, 0xc446, 0xfe46, 0x674c},
 };
-const uint16_t y[4][240]={
+uint16_t y[4][240]={
 {
 0xe027, 0xf013, 0xf013, 0xf010, 0xf010, 0xf010, 0xf010, 0xf010, 
 0xf011, 0xf011, 0xf011, 0xf011, 0xf015, 0xe01d, 0xe01f, 0xe01f, 
@@ -289,28 +250,3 @@ const uint16_t y[4][240]={
 0xd004, 0xd02c, 0xd03c, 0xd03e, 0xd036, 0xd012, 0xd013, 0xd013, 
 0xd011, 0xd010, 0xd010, 0xd010, 0xd010, 0xd030, 0xd030, 0xd030},
 };
-
-/* USER CODE END EC */
-
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
-/* USER CODE END EM */
-
-/* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void SVC_Handler(void);
-void PendSV_Handler(void);
-void SysTick_Handler(void);
-void EXTI4_15_IRQHandler(void);
-void TIM1_BRK_UP_TRG_COM_IRQHandler(void);
-void TIM3_IRQHandler(void);
-/* USER CODE BEGIN EFP */
-
-/* USER CODE END EFP */
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* __STM32F0xx_IT_H */
